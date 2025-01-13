@@ -50,8 +50,8 @@ ul li:hover {
 }
 
 .highlight {
-    background-color: red;
-    color: #fff;
+    background-color: rgb(237, 220, 89);
+    color: #000000;
     padding: 0 2px;
     border-radius: 2px;
     font-weight: bold;
