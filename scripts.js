@@ -2,11 +2,13 @@ const filterInput = document.getElementById("filterInput");
 
 filterInput.oninput = (e) => {
   setTimeout(() => {
-    const value = e.target.value;
+    // Convert the input to lowercase 
+    const value = e.target.value.toLowerCase();
     const articles = document.querySelectorAll("#articles li");
 
     articles.forEach((article) => {
-      const originalText = article.innerText;
+      // Convert the article to lowercase 
+      const originalText = article.innerText.toLowerCase();
 
       // If the input is empty, display all articles and reset to original text
       if (!value) {
@@ -28,9 +30,8 @@ filterInput.oninput = (e) => {
         }
       });
 
-      
+      // If a match is found, display the article
       if (matched) {
-        // If a match is found, display the article
         article.style.display = "list-item";
       } else {
         // Else, hide the article
