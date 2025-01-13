@@ -27,3 +27,8 @@ input {
 ul li {
     margin-top: 10px;
 }
+
+.highlight {
+    background-color: red;
+    color: #fff;
+}
