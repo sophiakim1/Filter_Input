@@ -7,7 +7,7 @@ filterInput.oninput = (e) => {
     const articles = document.querySelectorAll("#articles li");
 
     articles.forEach((article) => {
-      // Convert the article to lowercase 
+      // Convert the article to lowercase
       const originalText = article.innerText.toLowerCase();
 
       // If the input is empty, display all articles and reset to original text
@@ -19,20 +19,18 @@ filterInput.oninput = (e) => {
         return;
       }
 
-      // Split the article into individual words
-      const words = originalText.split(/\s+/);
-      let matched = false;
-
-      words.forEach((word) => {
-        if (word.includes(value)) {
-          // Set matched to true if a match is found
-          matched = true;
-        }
-      });
+      // Create a regex to find the matching text
+      const regex = new RegExp(`(${value})`, "gi");
+      const matchedText = originalText.replace(
+        regex,
+        '<span class="highlight">$1</span>'
+      );
 
       // If a match is found, display the article
-      if (matched) {
+      if (originalText.includes(value)) {
         article.style.display = "list-item";
+        // Set the highlighted text
+        article.innerHTML = matchedText;
       } else {
         // Else, hide the article
         article.style.display = "none";
